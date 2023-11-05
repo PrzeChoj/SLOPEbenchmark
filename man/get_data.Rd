@@ -2,12 +2,12 @@
 % Please edit documentation in R/singleCluster.R
 \name{get_data}
 \alias{get_data}
-\title{clusters c(0, 5, 100, 95) ===>>> beta = c(0, 0, 0, 0, 0, 100, 100, ..., 100)}
+\title{clusters = c(0, 5, 100, 95) ===>>> beta = c(0, 0, 0, 0, 0, 100, 100, ..., 100)}
 \usage{
 get_data(n, p, clusters, sigma = 0, CovarMatrix = "I")
 }
 \description{
-clusters c(0, 5, 100, 95) ===>>> beta = c(0, 0, 0, 0, 0, 100, 100, ..., 100)
+clusters = c(0, 5, 100, 95) ===>>> beta = c(0, 0, 0, 0, 0, 100, 100, ..., 100)
 }
 \examples{
 get_data(200, 100, c(0, 5, 100, 95))
