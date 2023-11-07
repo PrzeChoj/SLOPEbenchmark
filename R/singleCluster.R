@@ -47,7 +47,7 @@ get_data <- function(n, p, clusters, sigma = 0, CovarMatrix = "I") {
 }
 
 #' @export
-get_lambda <- function(type = c("B", "K", "I"), X, Y, p, q, n) {
+get_lambda <- function(type = c("B", "K", "I", "InvI"), X, Y, p, q, n) {
   if (type == "K") {
     lambda <- sort(abs(t(X) %*% Y), decreasing = TRUE)
   } else if (type == "I"){ # TODO(Uprość)
@@ -69,6 +69,9 @@ get_lambda <- function(type = c("B", "K", "I"), X, Y, p, q, n) {
 
     # lambda może być ujemna teraz. Trzba, żeby nie:
     lambda <- ifelse(lambda > 0, lambda, 0)
+  } else if (type == "InvI"){
+    lambdaI <- get_lambda(type = "I", X, Y, p, q, n)
+    lambda <- sort(1/lambdaI, decreasing = TRUE)
   } else {
     seq1 <- seq(1:p)
     lambda <- stats::qnorm(1 - q * seq1 / 2 / p)
